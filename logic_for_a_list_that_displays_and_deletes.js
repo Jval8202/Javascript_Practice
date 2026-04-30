@@ -5,6 +5,7 @@ let input = document.querySelector("#item");
 //displayers
 let Values_2_display = document.querySelector("#list");
 //end of displayers
+
 // buttons
 let submitButton = document.querySelector("#btn");
 submitButton.disabled = true
@@ -19,9 +20,6 @@ let timer;
 function render(){
 
     Values_2_display.innerHTML = "";
-
-
-
 
     list.forEach((item,index)=>{
 
@@ -75,4 +73,20 @@ form.addEventListener("submit",(event)=>{
 
 });
 
+form.addEventListener("submit",(event)=>{
+
+    event.preventDefault();
+
+    let word = input.value.trim();
+
+    if(word !== ""){
+
+        list.push(word);
+
+        input.value = "";
+
+        render()
+    }
+
+});
 
