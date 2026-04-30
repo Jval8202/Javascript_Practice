@@ -1,131 +1,70 @@
-/* RESET DEFAULT BROWSER STYLES */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    padding: 20px;
 }
 
+/* List container */
 
-/* PAGE BACKGROUND */
-body {
-    font-family: Arial, Helvetica, sans-serif;
+#list {
+    list-style: none;
+    padding: 0;
+}
 
-    height: 100vh;
+/* Each counter row */
+
+.counter-item {
+    background: white;
+    padding: 12px;
+    margin-bottom: 10px;
+
+    border-radius: 8px;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
-    background: linear-gradient(
-        135deg,
-        #667eea,
-        #764ba2
-    );
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* FORM CONTAINER */
-form {
-    background: white;
+/* Buttons */
 
-    padding: 30px;
-
-    border-radius: 12px;
-
-    width: 320px;
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 15px;
-
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-
-/* INPUT FIELDS */
-input {
-    padding: 12px;
-
-    border-radius: 8px;
-
-    border: 1px solid #ccc;
-
-    font-size: 16px;
-
-    transition: 0.2s;
-}
-
-
-/* INPUT FOCUS EFFECT */
-input:focus {
-    outline: none;
-
-    border-color: #667eea;
-
-    box-shadow: 0 0 5px rgba(102,126,234,0.5);
-}
-
-
-/* SUBMIT BUTTON */
 button {
-    padding: 12px;
+    margin-left: 6px;
+    padding: 6px 10px;
 
     border: none;
-
-    border-radius: 8px;
-
-    background: #667eea;
-
-    color: white;
-
-    font-size: 16px;
+    border-radius: 6px;
 
     cursor: pointer;
 
-    transition: 0.2s;
-}
-
-
-/* BUTTON HOVER */
-button:hover:not(:disabled) {
-    background: #5a67d8;
-}
-
-
-/* DISABLED BUTTON */
-button:disabled {
-    background: #ccc;
-
-    cursor: not-allowed;
-}
-
-
-/* MESSAGE TEXTS */
-#msg {
-    margin-top: 15px;
-
-    text-align: center;
-
     font-weight: bold;
-
-    color: rgb(80, 80, 80);
 }
 
+/* Add button */
 
-/* LIVE FEEDBACK TEXT */
-#LiveValue,
-#LivePass,
-#ConfirmMsg {
-
-    margin-top: 5px;
-    font-size: 14px;
-    color: rgb(41, 41, 41);
-    text-align: center;
+.btn-add {
+    background-color: #4CAF50;
+    color: white;
 }
 
-.feedback {
-    font-size: 13px;
-    color: #555;
-    margin-top: -8px;
-    margin-bottom: 5px;
+/* Minus button */
+
+.btn-minus {
+    background-color: #ff9800;
+    color: white;
+}
+
+/* Delete button */
+
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Disabled button */
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
