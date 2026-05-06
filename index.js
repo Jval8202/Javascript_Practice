@@ -10,15 +10,19 @@ submitButton.disabled = true
 //displayers
 let Values_2_display = document.querySelector("#list");
 
-// array
-let text = []
+// saved values + array definition
+let text = JSON.parse(localStorage.getItem("text")) || [];
 
 // ************************\ LOGIC PART \************************** //
+
+function save(){
+    localStorage.setItem("text", JSON.stringify(text));
+}
 
 function render(){
         
     Values_2_display.innerHTML = "";
-
+    
     text.forEach((item,index)=>{
 
         //HTML list elements
@@ -37,11 +41,13 @@ function render(){
 
         delete_button.addEventListener("click",() => {
             text.splice(index,1);
+            save();
             render();
         });
 
         done_button.addEventListener("click",() => {
             item.done = !item.done;
+            save();
             render()
         })
 
@@ -73,6 +79,7 @@ form.addEventListener("submit",(event)=>{
         });
 
         input.value = "";
+        save();
         render()
         
     }
@@ -86,3 +93,5 @@ input.addEventListener("input", (chars) =>{
         submitButton.disabled = true
     }
 })
+
+render()
