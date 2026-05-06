@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    padding: 20px;
+}
+
+/* List container */
+
+#list {
+    list-style: none;
+    padding: 0;
+}
+
+/* Each counter row */
+
+.task-item {
+    background: white;
+    padding: 12px;
+    margin-bottom: 10px;
+
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Buttons */
+
+button {
+    margin-left: 6px;
+    padding: 6px 10px;
+
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+/* Add button */
+
+.btn-add {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Minus button */
+
+.btn-minus {
+    background-color: #ff9800;
+    color: white;
+}
+
+/* Delete button */
+
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Disabled button */
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
