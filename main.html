@@ -10,12 +10,21 @@
 
 <body>
 
-    <form id="form">
-        <input id="task" placeholder="Enter task">
-        <button id="submit">Add</button>
-    </form>
+    <div class="container">
+        <form id="form">
+            <input id="task" placeholder="Enter task">
+            <button id="submit">Add</button>
+        </form>
 
-    <ul id="list"></ul>
+        <div class="filters">
+            <button id="all">All</button>
+            <button id="active">Active</button>
+            <button id="completed">Completed</button>
+        </div>
+
+        <ul id="list"></ul>
+    </div>
+
 
     <script src="index.js"></script>
 

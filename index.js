@@ -11,25 +11,40 @@ submitButton.disabled = true
 let Values_2_display = document.querySelector("#list");
 
 // saved values + array definition
-let text = JSON.parse(localStorage.getItem("text")) || [];
+let tasks = JSON.parse(localStorage.getItem("text")) || [];
+
+// Filters
+let currentFilter = "all";
 
 // ************************\ LOGIC PART \************************** //
 
 function save(){
-    localStorage.setItem("text", JSON.stringify(text));
+    localStorage.setItem("text", JSON.stringify(tasks));
 }
 
 function render(){
         
     Values_2_display.innerHTML = "";
-    
-    text.forEach((item,index)=>{
+
+    // definition 
+    let filteredTasks = [];
+
+    // filter condition so it can display different values. 
+    if(currentFilter === "all"){
+        filteredTasks = tasks;
+    }else if(currentFilter === "active"){
+        filteredTasks = tasks.filter(task => !task.done)
+    }else if(currentFilter === "completed"){
+        filteredTasks = tasks.filter(task => task.done);
+    }
+
+    filteredTasks.forEach((item,index)=>{
 
         //HTML list elements
         //definitions
 
         let li = document.createElement("li");
-        li.textContent = `Task: ${item.text} `;;
+        li.textContent = `Task: ${item.tasks} `;;
 
         let delete_button = document.createElement("button")
         delete_button.textContent = "Delete";
@@ -40,7 +55,7 @@ function render(){
         //end of definitions
 
         delete_button.addEventListener("click",() => {
-            text.splice(index,1);
+            tasks.splice(index,1);
             save();
             render();
         });
@@ -63,6 +78,7 @@ function render(){
         Values_2_display.appendChild(li);
 
     });
+
 }
 
 form.addEventListener("submit",(event)=>{
@@ -73,8 +89,8 @@ form.addEventListener("submit",(event)=>{
     
     if(Word !== ""){
 
-        text.push({
-        text: String(Word),
+        tasks.push({
+        tasks: String(Word),
         done: false
         });
 
@@ -83,6 +99,29 @@ form.addEventListener("submit",(event)=>{
         render()
         
     }
+});
+
+document.querySelector("#all").addEventListener("click", () => {
+
+    currentFilter = "all";
+
+    render();
+
+});
+
+document.querySelector("#active").addEventListener("click", () => {
+
+    currentFilter = "active";
+
+    render();
+
+});
+document.querySelector("#completed").addEventListener("click", () => {
+
+    currentFilter = "completed";
+
+    render();
+
 });
 
 input.addEventListener("input", (chars) =>{

@@ -94,3 +94,10 @@ li button:nth-child(2) {
 li button:nth-child(2):hover {
     background: #c0392b;
 }
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
